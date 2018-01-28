@@ -1,5 +1,5 @@
 //====================================================================================================================
-// Module:    wideWorldTravel
+// Module:    routeRouting
 // Optimized: Yes
 // File:      ./app/app.js
 //====================================================================================================================
@@ -11,55 +11,74 @@
   module
       .config($routeProvider => {
           $routeProvider
-              .when("/", {
-                  templateUrl: "partials/books.html",
-                  controller: "GuideCtrl"
+              .when("/i65", {
+                  templateUrl: "partials/i65.html",
+                  controller: "i65Ctrl.js"
+              })
+              .when("/i40", {
+                  templateUrl: "partials/i40.html",
+                  controller: "i40Ctrl.js"
               })
               .otherwise("/");
       });
 
 //--------------------------------------------------------------------------------------------------------------------
-// File: ./app/controllers/GuideCtrl.js
+// File: ./app/controllers/i40Ctrl.js
 //--------------------------------------------------------------------------------------------------------------------
 
   'use strict';
 
-  module.controller("GuideCtrl", function ($scope, GuideFactory) {
-      GuideFactory.getGuides()
-          .then((guideData) => {
-              console.log('guideData',guideData);
-              // $scope.allShrooms = Object.values(mushroomData.data)
+  module.controller("i40Ctrl", function ($scope, RouteFactory) {
+      RouteFactory.getRoutes()
+          .then((routeData) => {
+              console.log(routeData);
+              // $scope.allRoutes = routeData.data;
+
           });
   });
 //--------------------------------------------------------------------------------------------------------------------
-// File: ./app/factories/GuideFactory.js
+// File: ./app/controllers/i65Ctrl.js
 //--------------------------------------------------------------------------------------------------------------------
 
   'use strict';
 
-  module.factory("GuideFactory", function ($q, $http) {
+  module.controller("i65Ctrl", function ($scope, RouteFactory) {
+      RouteFactory.getRoutes()
+          .then((routeData) => {
+              console.log(routeData);
+              // $scope.allRoutes = routeData.data;
 
-      let getGuides = () => {
+          });
+  });
+//--------------------------------------------------------------------------------------------------------------------
+// File: ./app/factories/RouteFactory.js
+//--------------------------------------------------------------------------------------------------------------------
+
+  'use strict';
+
+  module.factory("RouteFactory", function ($q, $http) {
+
+      let getRoutes = () => {
           return $q((resolve, reject) => {
               $http
-                  .get("../guides.json")
-                  .then((guides) => {
-                      resolve(guides);
+                  .get("../data/routes.json")
+                  .then((routes) => {
+                      resolve(routes);
                   })
                   .catch((err) => {
                       reject(err);
                   });
           });
       };
-      return { getGuides };
+      return { getRoutes };
   });
 
-}) (angular.module ('wideWorldTravel', ['ngRoute']));
+}) (angular.module ('routeRouting', ['ngRoute']));
 
 
 
 //====================================================================================================================
-// Module:    wideWorldTravel
+// Module:    routeRouting
 // Optimized: Yes
 // File:      ./app/app.js
 //====================================================================================================================
@@ -71,56 +90,74 @@
   module
       .config($routeProvider => {
           $routeProvider
-              .when("/", {
-                  templateUrl: "partials/books.html",
-                  controller: "GuideCtrl"
+              .when("/i65", {
+                  templateUrl: "partials/i65.html",
+                  controller: "i65Ctrl.js"
+              })
+              .when("/i40", {
+                  templateUrl: "partials/i40.html",
+                  controller: "i40Ctrl.js"
               })
               .otherwise("/");
       });
 
 //--------------------------------------------------------------------------------------------------------------------
-// File: ./app/controllers/GuideCtrl.js
+// File: ./app/controllers/i40Ctrl.js
 //--------------------------------------------------------------------------------------------------------------------
 
   'use strict';
 
-  module.controller("GuideCtrl", function ($scope, GuideFactory) {
-      GuideFactory.getGuides()
-          .then((guideData) => {
-              console.log('guideData',guideData);
-              $scope.allGuides = Object.values(guideData.data);
-              console.log('$scope.allGuides',$scope.allGuides);
+  module.controller("i40Ctrl", function ($scope, RouteFactory) {
+      RouteFactory.getRoutes()
+          .then((routeData) => {
+              console.log(routeData);
+              // $scope.allRoutes = routeData.data;
+
           });
   });
 //--------------------------------------------------------------------------------------------------------------------
-// File: ./app/factories/GuideFactory.js
+// File: ./app/controllers/i65Ctrl.js
 //--------------------------------------------------------------------------------------------------------------------
 
   'use strict';
 
-  module.factory("GuideFactory", function ($q, $http) {
+  module.controller("i65Ctrl", function ($scope, RouteFactory) {
+      RouteFactory.getRoutes()
+          .then((routeData) => {
+              console.log(routeData);
+              // $scope.allRoutes = routeData.data;
 
-      let getGuides = () => {
+          });
+  });
+//--------------------------------------------------------------------------------------------------------------------
+// File: ./app/factories/RouteFactory.js
+//--------------------------------------------------------------------------------------------------------------------
+
+  'use strict';
+
+  module.factory("RouteFactory", function ($q, $http) {
+
+      let getRoutes = () => {
           return $q((resolve, reject) => {
               $http
-                  .get("../guides.json")
-                  .then((guides) => {
-                      resolve(guides);
+                  .get("../data/routes.json")
+                  .then((routes) => {
+                      resolve(routes);
                   })
                   .catch((err) => {
                       reject(err);
                   });
           });
       };
-      return { getGuides };
+      return { getRoutes };
   });
 
-}) (angular.module ('wideWorldTravel', ['ngRoute']));
+}) (angular.module ('routeRouting', ['ngRoute']));
 
 
 
 //====================================================================================================================
-// Module:    wideWorldTravel
+// Module:    routeRouting
 // Optimized: Yes
 // File:      ./app/app.js
 //====================================================================================================================
@@ -132,56 +169,74 @@
   module
       .config($routeProvider => {
           $routeProvider
-              .when("/", {
-                  templateUrl: "partials/books.html",
-                  controller: "GuideCtrl"
+              .when("/i65", {
+                  templateUrl: "partials/i65.html",
+                  controller: "i65Ctrl.js"
+              })
+              .when("/i40", {
+                  templateUrl: "partials/i40.html",
+                  controller: "i40Ctrl.js"
               })
               .otherwise("/");
       });
 
 //--------------------------------------------------------------------------------------------------------------------
-// File: ./app/controllers/GuideCtrl.js
+// File: ./app/controllers/i40Ctrl.js
 //--------------------------------------------------------------------------------------------------------------------
 
   'use strict';
 
-  module.controller("GuideCtrl", function ($scope, GuideFactory) {
-      GuideFactory.getGuides()
-          .then((guideData) => {
-              console.log('guideData',guideData);
-              $scope.allGuides = Object.values(guideData.data[0]);
-              console.log('$scope.allGuides',$scope.allGuides);
+  module.controller("i40Ctrl", function ($scope, RouteFactory) {
+      RouteFactory.getRoutes()
+          .then((routeData) => {
+              console.log(routeData);
+              // $scope.allRoutes = routeData.data;
+
           });
   });
 //--------------------------------------------------------------------------------------------------------------------
-// File: ./app/factories/GuideFactory.js
+// File: ./app/controllers/i65Ctrl.js
 //--------------------------------------------------------------------------------------------------------------------
 
   'use strict';
 
-  module.factory("GuideFactory", function ($q, $http) {
+  module.controller("i65Ctrl", function ($scope, RouteFactory) {
+      RouteFactory.getRoutes()
+          .then((routeData) => {
+              console.log(routeData);
+              // $scope.allRoutes = routeData.data;
 
-      let getGuides = () => {
+          });
+  });
+//--------------------------------------------------------------------------------------------------------------------
+// File: ./app/factories/RouteFactory.js
+//--------------------------------------------------------------------------------------------------------------------
+
+  'use strict';
+
+  module.factory("RouteFactory", function ($q, $http) {
+
+      let getRoutes = () => {
           return $q((resolve, reject) => {
               $http
-                  .get("../guides.json")
-                  .then((guides) => {
-                      resolve(guides);
+                  .get("../data/routes.json")
+                  .then((routes) => {
+                      resolve(routes);
                   })
                   .catch((err) => {
                       reject(err);
                   });
           });
       };
-      return { getGuides };
+      return { getRoutes };
   });
 
-}) (angular.module ('wideWorldTravel', ['ngRoute']));
+}) (angular.module ('routeRouting', ['ngRoute']));
 
 
 
 //====================================================================================================================
-// Module:    wideWorldTravel
+// Module:    routeRouting
 // Optimized: Yes
 // File:      ./app/app.js
 //====================================================================================================================
@@ -193,722 +248,69 @@
   module
       .config($routeProvider => {
           $routeProvider
-              .when("/", {
-                  templateUrl: "partials/books.html",
-                  controller: "GuideCtrl"
+              .when("/i65", {
+                  templateUrl: "partials/i65.html",
+                  controller: "i65Ctrl.js"
+              })
+              .when("/i40", {
+                  templateUrl: "partials/i40.html",
+                  controller: "i40Ctrl.js"
               })
               .otherwise("/");
       });
 
 //--------------------------------------------------------------------------------------------------------------------
-// File: ./app/controllers/GuideCtrl.js
+// File: ./app/controllers/i40Ctrl.js
 //--------------------------------------------------------------------------------------------------------------------
 
   'use strict';
 
-  module.controller("GuideCtrl", function ($scope, GuideFactory) {
-      GuideFactory.getGuides()
-          .then((guideData) => {
-              console.log('guideData',guideData);
-              $scope.allGuides = Object.values(guideData.data);
-              console.log('$scope.allGuides',$scope.allGuides);
+  module.controller("i40Ctrl", function ($scope, RouteFactory) {
+      RouteFactory.getRoutes()
+          .then((routeData) => {
+              console.log(routeData);
+              // $scope.allRoutes = routeData.data;
+
           });
   });
 //--------------------------------------------------------------------------------------------------------------------
-// File: ./app/factories/GuideFactory.js
+// File: ./app/controllers/i65Ctrl.js
 //--------------------------------------------------------------------------------------------------------------------
 
   'use strict';
 
-  module.factory("GuideFactory", function ($q, $http) {
+  module.controller("i65Ctrl", function ($scope, RouteFactory) {
+      RouteFactory.getRoutes()
+          .then((routeData) => {
+              console.log(routeData);
+              // $scope.allRoutes = routeData.data;
 
-      let getGuides = () => {
+          });
+  });
+//--------------------------------------------------------------------------------------------------------------------
+// File: ./app/factories/RouteFactory.js
+//--------------------------------------------------------------------------------------------------------------------
+
+  'use strict';
+
+  module.factory("RouteFactory", function ($q, $http) {
+
+      let getRoutes = () => {
           return $q((resolve, reject) => {
               $http
-                  .get("../guides.json")
-                  .then((guides) => {
-                      resolve(guides);
+                  .get("../data/routes.json")
+                  .then((routes) => {
+                      resolve(routes);
                   })
                   .catch((err) => {
                       reject(err);
                   });
           });
       };
-      return { getGuides };
+      return { getRoutes };
   });
 
-}) (angular.module ('wideWorldTravel', ['ngRoute']));
-
-
-
-//====================================================================================================================
-// Module:    wideWorldTravel
-// Optimized: Yes
-// File:      ./app/app.js
-//====================================================================================================================
-
-(function (module) {
-
-  'use strict';
-
-  module
-      .config($routeProvider => {
-          $routeProvider
-              .when("/", {
-                  templateUrl: "partials/books.html",
-                  controller: "GuideCtrl"
-              })
-              .otherwise("/");
-      });
-
-//--------------------------------------------------------------------------------------------------------------------
-// File: ./app/controllers/GuideCtrl.js
-//--------------------------------------------------------------------------------------------------------------------
-
-  'use strict';
-
-  module.controller("GuideCtrl", function ($scope, GuideFactory) {
-      GuideFactory.getGuides()
-          .then((guideData) => {
-              console.log('guideData',guideData);
-              $scope.allGuides = Object.values(guideData.data.data);
-              console.log('$scope.allGuides',$scope.allGuides);
-          });
-  });
-//--------------------------------------------------------------------------------------------------------------------
-// File: ./app/factories/GuideFactory.js
-//--------------------------------------------------------------------------------------------------------------------
-
-  'use strict';
-
-  module.factory("GuideFactory", function ($q, $http) {
-
-      let getGuides = () => {
-          return $q((resolve, reject) => {
-              $http
-                  .get("../guides.json")
-                  .then((guides) => {
-                      resolve(guides);
-                  })
-                  .catch((err) => {
-                      reject(err);
-                  });
-          });
-      };
-      return { getGuides };
-  });
-
-}) (angular.module ('wideWorldTravel', ['ngRoute']));
-
-
-
-//====================================================================================================================
-// Module:    wideWorldTravel
-// Optimized: Yes
-// File:      ./app/app.js
-//====================================================================================================================
-
-(function (module) {
-
-  'use strict';
-
-  module
-      .config($routeProvider => {
-          $routeProvider
-              .when("/", {
-                  templateUrl: "partials/books.html",
-                  controller: "GuideCtrl"
-              })
-              .otherwise("/");
-      });
-
-//--------------------------------------------------------------------------------------------------------------------
-// File: ./app/controllers/GuideCtrl.js
-//--------------------------------------------------------------------------------------------------------------------
-
-  'use strict';
-
-  module.controller("GuideCtrl", function ($scope, GuideFactory) {
-      GuideFactory.getGuides()
-          .then((guideData) => {
-              console.log('guideData',guideData);
-              $scope.allGuides = Object.values(guideData.data);
-              console.log('$scope.allGuides',$scope.allGuides);
-          });
-  });
-//--------------------------------------------------------------------------------------------------------------------
-// File: ./app/factories/GuideFactory.js
-//--------------------------------------------------------------------------------------------------------------------
-
-  'use strict';
-
-  module.factory("GuideFactory", function ($q, $http) {
-
-      let getGuides = () => {
-          return $q((resolve, reject) => {
-              $http
-                  .get("../guides.json")
-                  .then((guides) => {
-                      resolve(guides);
-                  })
-                  .catch((err) => {
-                      reject(err);
-                  });
-          });
-      };
-      return { getGuides };
-  });
-
-}) (angular.module ('wideWorldTravel', ['ngRoute']));
-
-
-
-//====================================================================================================================
-// Module:    wideWorldTravel
-// Optimized: Yes
-// File:      ./app/app.js
-//====================================================================================================================
-
-(function (module) {
-
-  'use strict';
-
-  module
-      .config($routeProvider => {
-          $routeProvider
-              .when("/", {
-                  templateUrl: "partials/books.html",
-                  controller: "GuideCtrl"
-              })
-              .otherwise("/");
-      });
-
-//--------------------------------------------------------------------------------------------------------------------
-// File: ./app/controllers/GuideCtrl.js
-//--------------------------------------------------------------------------------------------------------------------
-
-  'use strict';
-
-  module.controller("GuideCtrl", function ($scope, GuideFactory) {
-      GuideFactory.getGuides()
-          .then((guideData) => {
-              console.log('guideData',guideData);
-              $scope.allGuides = Object.values(guideData.data);
-              console.log('$scope.allGuides',Object.values($scope.allGuides));
-          });
-  });
-//--------------------------------------------------------------------------------------------------------------------
-// File: ./app/factories/GuideFactory.js
-//--------------------------------------------------------------------------------------------------------------------
-
-  'use strict';
-
-  module.factory("GuideFactory", function ($q, $http) {
-
-      let getGuides = () => {
-          return $q((resolve, reject) => {
-              $http
-                  .get("../guides.json")
-                  .then((guides) => {
-                      resolve(guides);
-                  })
-                  .catch((err) => {
-                      reject(err);
-                  });
-          });
-      };
-      return { getGuides };
-  });
-
-}) (angular.module ('wideWorldTravel', ['ngRoute']));
-
-
-
-//====================================================================================================================
-// Module:    wideWorldTravel
-// Optimized: Yes
-// File:      ./app/app.js
-//====================================================================================================================
-
-(function (module) {
-
-  'use strict';
-
-  module
-      .config($routeProvider => {
-          $routeProvider
-              .when("/", {
-                  templateUrl: "partials/books.html",
-                  controller: "GuideCtrl"
-              })
-              .otherwise("/");
-      });
-
-//--------------------------------------------------------------------------------------------------------------------
-// File: ./app/controllers/GuideCtrl.js
-//--------------------------------------------------------------------------------------------------------------------
-
-  'use strict';
-
-  module.controller("GuideCtrl", function ($scope, GuideFactory) {
-      GuideFactory.getGuides()
-          .then((guideData) => {
-              console.log('guideData',guideData);
-              $scope.allGuides = Object.values(guideData.data);
-              console.log('$scope.allGuides',$scope.allGuides);
-          });
-  });
-//--------------------------------------------------------------------------------------------------------------------
-// File: ./app/factories/GuideFactory.js
-//--------------------------------------------------------------------------------------------------------------------
-
-  'use strict';
-
-  module.factory("GuideFactory", function ($q, $http) {
-
-      let getGuides = () => {
-          return $q((resolve, reject) => {
-              $http
-                  .get("../guides.json")
-                  .then((guides) => {
-                      resolve(guides);
-                  })
-                  .catch((err) => {
-                      reject(err);
-                  });
-          });
-      };
-      return { getGuides };
-  });
-
-}) (angular.module ('wideWorldTravel', ['ngRoute']));
-
-
-
-//====================================================================================================================
-// Module:    wideWorldTravel
-// Optimized: Yes
-// File:      ./app/app.js
-//====================================================================================================================
-
-(function (module) {
-
-  'use strict';
-
-  module
-      .config($routeProvider => {
-          $routeProvider
-              .when("/", {
-                  templateUrl: "partials/books.html",
-                  controller: "GuideCtrl"
-              })
-              .otherwise("/");
-      });
-
-//--------------------------------------------------------------------------------------------------------------------
-// File: ./app/controllers/GuideCtrl.js
-//--------------------------------------------------------------------------------------------------------------------
-
-  'use strict';
-
-  module.controller("GuideCtrl", function ($scope, GuideFactory) {
-      GuideFactory.getGuides()
-          .then((guideData) => {
-              console.log('guideData',guideData);
-              $scope.allGuides = Object.values(guideData.data);
-              console.log('$scope.allGuides',$scope.allGuides.values());
-          });
-  });
-//--------------------------------------------------------------------------------------------------------------------
-// File: ./app/factories/GuideFactory.js
-//--------------------------------------------------------------------------------------------------------------------
-
-  'use strict';
-
-  module.factory("GuideFactory", function ($q, $http) {
-
-      let getGuides = () => {
-          return $q((resolve, reject) => {
-              $http
-                  .get("../guides.json")
-                  .then((guides) => {
-                      resolve(guides);
-                  })
-                  .catch((err) => {
-                      reject(err);
-                  });
-          });
-      };
-      return { getGuides };
-  });
-
-}) (angular.module ('wideWorldTravel', ['ngRoute']));
-
-
-
-//====================================================================================================================
-// Module:    wideWorldTravel
-// Optimized: Yes
-// File:      ./app/app.js
-//====================================================================================================================
-
-(function (module) {
-
-  'use strict';
-
-  module
-      .config($routeProvider => {
-          $routeProvider
-              .when("/", {
-                  templateUrl: "partials/books.html",
-                  controller: "GuideCtrl"
-              })
-              .otherwise("/");
-      });
-
-//--------------------------------------------------------------------------------------------------------------------
-// File: ./app/controllers/GuideCtrl.js
-//--------------------------------------------------------------------------------------------------------------------
-
-  'use strict';
-
-  module.controller("GuideCtrl", function ($scope, GuideFactory) {
-      GuideFactory.getGuides()
-          .then((guideData) => {
-              console.log('guideData',guideData);
-              $scope.allGuides = Object.values(guideData.data);
-              console.log('$scope.allGuides',$scope.allGuides);
-          });
-  });
-//--------------------------------------------------------------------------------------------------------------------
-// File: ./app/factories/GuideFactory.js
-//--------------------------------------------------------------------------------------------------------------------
-
-  'use strict';
-
-  module.factory("GuideFactory", function ($q, $http) {
-
-      let getGuides = () => {
-          return $q((resolve, reject) => {
-              $http
-                  .get("../guides.json")
-                  .then((guides) => {
-                      resolve(guides);
-                  })
-                  .catch((err) => {
-                      reject(err);
-                  });
-          });
-      };
-      return { getGuides };
-  });
-
-}) (angular.module ('wideWorldTravel', ['ngRoute']));
-
-
-
-//====================================================================================================================
-// Module:    wideWorldTravel
-// Optimized: Yes
-// File:      ./app/app.js
-//====================================================================================================================
-
-(function (module) {
-
-  'use strict';
-
-  module
-      .config($routeProvider => {
-          $routeProvider
-              .when("/", {
-                  templateUrl: "partials/books.html",
-                  controller: "GuideCtrl"
-              })
-              .otherwise("/");
-      });
-
-//--------------------------------------------------------------------------------------------------------------------
-// File: ./app/controllers/GuideCtrl.js
-//--------------------------------------------------------------------------------------------------------------------
-
-  'use strict';
-
-  module.controller("GuideCtrl", function ($scope, GuideFactory) {
-      GuideFactory.getGuides()
-          .then((guideData) => {
-              console.log('guideData',guideData);
-              $scope.allGuides = guideData.data;
-              console.log('$scope.allGuides',$scope.allGuides);
-          });
-  });
-//--------------------------------------------------------------------------------------------------------------------
-// File: ./app/factories/GuideFactory.js
-//--------------------------------------------------------------------------------------------------------------------
-
-  'use strict';
-
-  module.factory("GuideFactory", function ($q, $http) {
-
-      let getGuides = () => {
-          return $q((resolve, reject) => {
-              $http
-                  .get("../guides.json")
-                  .then((guides) => {
-                      resolve(guides);
-                  })
-                  .catch((err) => {
-                      reject(err);
-                  });
-          });
-      };
-      return { getGuides };
-  });
-
-}) (angular.module ('wideWorldTravel', ['ngRoute']));
-
-
-
-//====================================================================================================================
-// Module:    wideWorldTravel
-// Optimized: Yes
-// File:      ./app/app.js
-//====================================================================================================================
-
-(function (module) {
-
-  'use strict';
-
-  module
-      .config($routeProvider => {
-          $routeProvider
-              .when("/", {
-                  templateUrl: "partials/books.html",
-                  controller: "GuideCtrl"
-              })
-              .otherwise("/");
-      });
-
-//--------------------------------------------------------------------------------------------------------------------
-// File: ./app/controllers/GuideCtrl.js
-//--------------------------------------------------------------------------------------------------------------------
-
-  'use strict';
-
-  module.controller("GuideCtrl", function ($scope, GuideFactory) {
-      GuideFactory.getGuides()
-          .then((guideData) => {
-              console.log('guideData',guideData);
-              $scope.allGuides = guideData.data;
-              console.log('$scope.allGuides',$scope.allGuides);
-          });
-  });
-//--------------------------------------------------------------------------------------------------------------------
-// File: ./app/factories/GuideFactory.js
-//--------------------------------------------------------------------------------------------------------------------
-
-  'use strict';
-
-  module.factory("GuideFactory", function ($q, $http) {
-
-      let getGuides = () => {
-          return $q((resolve, reject) => {
-              $http
-                  .get("../guides.json")
-                  .then((guides) => {
-                      resolve(guides);
-                  })
-                  .catch((err) => {
-                      reject(err);
-                  });
-          });
-      };
-      return { getGuides };
-  });
-
-}) (angular.module ('wideWorldTravel', ['ngRoute']));
-
-
-
-//====================================================================================================================
-// Module:    wideWorldTravel
-// Optimized: Yes
-// File:      ./app/app.js
-//====================================================================================================================
-
-(function (module) {
-
-  'use strict';
-
-  module
-      .config($routeProvider => {
-          $routeProvider
-              .when("/", {
-                  templateUrl: "partials/books.html",
-                  controller: "GuideCtrl"
-              })
-              .otherwise("/");
-      });
-
-//--------------------------------------------------------------------------------------------------------------------
-// File: ./app/controllers/GuideCtrl.js
-//--------------------------------------------------------------------------------------------------------------------
-
-  'use strict';
-
-  module.controller("GuideCtrl", function ($scope, GuideFactory) {
-      GuideFactory.getGuides()
-          .then((guideData) => {
-              $scope.allGuides = Object.values(guideData.data);
-              $scope.allGuides.forEach(guide => {
-                  console.log('guide',guide);
-              }
-              );
-          });
-  });
-//--------------------------------------------------------------------------------------------------------------------
-// File: ./app/factories/GuideFactory.js
-//--------------------------------------------------------------------------------------------------------------------
-
-  'use strict';
-
-  module.factory("GuideFactory", function ($q, $http) {
-
-      let getGuides = () => {
-          return $q((resolve, reject) => {
-              $http
-                  .get("../guides.json")
-                  .then((guides) => {
-                      resolve(guides);
-                  })
-                  .catch((err) => {
-                      reject(err);
-                  });
-          });
-      };
-      return { getGuides };
-  });
-
-}) (angular.module ('wideWorldTravel', ['ngRoute']));
-
-
-
-//====================================================================================================================
-// Module:    wideWorldTravel
-// Optimized: Yes
-// File:      ./app/app.js
-//====================================================================================================================
-
-(function (module) {
-
-  'use strict';
-
-  module
-      .config($routeProvider => {
-          $routeProvider
-              .when("/", {
-                  templateUrl: "partials/books.html",
-                  controller: "GuideCtrl"
-              })
-              .otherwise("/");
-      });
-
-//--------------------------------------------------------------------------------------------------------------------
-// File: ./app/controllers/GuideCtrl.js
-//--------------------------------------------------------------------------------------------------------------------
-
-  'use strict';
-
-  module.controller("GuideCtrl", function ($scope, GuideFactory) {
-      GuideFactory.getGuides()
-          .then((guideData) => {
-              $scope.allGuides = guideData.data.guides;
-
-          });
-  });
-//--------------------------------------------------------------------------------------------------------------------
-// File: ./app/factories/GuideFactory.js
-//--------------------------------------------------------------------------------------------------------------------
-
-  'use strict';
-
-  module.factory("GuideFactory", function ($q, $http) {
-
-      let getGuides = () => {
-          return $q((resolve, reject) => {
-              $http
-                  .get("../guides.json")
-                  .then((guides) => {
-                      resolve(guides);
-                  })
-                  .catch((err) => {
-                      reject(err);
-                  });
-          });
-      };
-      return { getGuides };
-  });
-
-}) (angular.module ('wideWorldTravel', ['ngRoute']));
-
-
-
-//====================================================================================================================
-// Module:    wideWorldTravel
-// Optimized: Yes
-// File:      ./app/app.js
-//====================================================================================================================
-
-(function (module) {
-
-  'use strict';
-
-  module
-      .config($routeProvider => {
-          $routeProvider
-              .when("/", {
-                  templateUrl: "partials/books.html",
-                  controller: "GuideCtrl"
-              })
-              .otherwise("/");
-      });
-
-//--------------------------------------------------------------------------------------------------------------------
-// File: ./app/controllers/GuideCtrl.js
-//--------------------------------------------------------------------------------------------------------------------
-
-  'use strict';
-
-  module.controller("GuideCtrl", function ($scope, GuideFactory) {
-      GuideFactory.getGuides()
-          .then((guideData) => {
-              $scope.allGuides = guideData.data.guides;
-
-          });
-  });
-//--------------------------------------------------------------------------------------------------------------------
-// File: ./app/factories/GuideFactory.js
-//--------------------------------------------------------------------------------------------------------------------
-
-  'use strict';
-
-  module.factory("GuideFactory", function ($q, $http) {
-
-      let getGuides = () => {
-          return $q((resolve, reject) => {
-              $http
-                  .get("../data/guides.json")
-                  .then((guides) => {
-                      resolve(guides);
-                  })
-                  .catch((err) => {
-                      reject(err);
-                  });
-          });
-      };
-      return { getGuides };
-  });
-
-}) (angular.module ('wideWorldTravel', ['ngRoute']));
+}) (angular.module ('routeRouting', ['ngRoute']));
 
 
 
@@ -926,22 +328,126 @@
       .config($routeProvider => {
           $routeProvider
               .when("/", {
-                  templateUrl: "partials/routes.html",
-                  controller: "RouteCtrl"
+                  templateUrl:"home.html"
+              })
+              .when("/i65", {
+                  templateUrl: "partials/i65.html",
+                  controller: "i65Ctrl.js"
+              })
+              .when("/i40", {
+                  templateUrl: "partials/i40.html",
+                  controller: "i40Ctrl.js"
               })
               .otherwise("/");
       });
 
 //--------------------------------------------------------------------------------------------------------------------
-// File: ./app/controllers/RouteCtrl.js
+// File: ./app/controllers/i40Ctrl.js
 //--------------------------------------------------------------------------------------------------------------------
 
   'use strict';
 
-  module.controller("RouteCtrl", function ($scope, RouteFactory) {
+  module.controller("i40Ctrl", function ($scope, RouteFactory) {
       RouteFactory.getRoutes()
           .then((routeData) => {
-              $scope.allRoutes = routeData.data;
+              console.log(routeData);
+              // $scope.allRoutes = routeData.data;
+
+          });
+  });
+//--------------------------------------------------------------------------------------------------------------------
+// File: ./app/controllers/i65Ctrl.js
+//--------------------------------------------------------------------------------------------------------------------
+
+  'use strict';
+
+  module.controller("i65Ctrl", function ($scope, RouteFactory) {
+      RouteFactory.getRoutes()
+          .then((routeData) => {
+              console.log(routeData);
+              // $scope.allRoutes = routeData.data;
+
+          });
+  });
+//--------------------------------------------------------------------------------------------------------------------
+// File: ./app/factories/RouteFactory.js
+//--------------------------------------------------------------------------------------------------------------------
+
+  'use strict';
+
+  module.factory("RouteFactory", function ($q, $http) {
+
+      let getRoutes = () => {
+          return $q((resolve, reject) => {
+              $http
+                  .get("../data/routes.json")
+                  .then((routes) => {
+                      resolve(routes);
+                  })
+                  .catch((err) => {
+                      reject(err);
+                  });
+          });
+      };
+      return { getRoutes };
+  });
+
+}) (angular.module ('routeRouting', ['ngRoute']));
+
+
+
+//====================================================================================================================
+// Module:    routeRouting
+// Optimized: Yes
+// File:      ./app/app.js
+//====================================================================================================================
+
+(function (module) {
+
+  'use strict';
+
+  module
+      .config($routeProvider => {
+          $routeProvider
+              .when("/", {
+                  templateUrl:"partials/home.html"
+              })
+              .when("/i65", {
+                  templateUrl: "partials/i65.html",
+                  controller: "i65Ctrl.js"
+              })
+              .when("/i40", {
+                  templateUrl: "partials/i40.html",
+                  controller: "i40Ctrl.js"
+              })
+              .otherwise("/");
+      });
+
+//--------------------------------------------------------------------------------------------------------------------
+// File: ./app/controllers/i40Ctrl.js
+//--------------------------------------------------------------------------------------------------------------------
+
+  'use strict';
+
+  module.controller("i40Ctrl", function ($scope, RouteFactory) {
+      RouteFactory.getRoutes()
+          .then((routeData) => {
+              console.log(routeData);
+              // $scope.allRoutes = routeData.data;
+
+          });
+  });
+//--------------------------------------------------------------------------------------------------------------------
+// File: ./app/controllers/i65Ctrl.js
+//--------------------------------------------------------------------------------------------------------------------
+
+  'use strict';
+
+  module.controller("i65Ctrl", function ($scope, RouteFactory) {
+      RouteFactory.getRoutes()
+          .then((routeData) => {
+              console.log(routeData);
+              // $scope.allRoutes = routeData.data;
 
           });
   });
