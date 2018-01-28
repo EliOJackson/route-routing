@@ -2039,3 +2039,83 @@
 }) (angular.module ('routeRouting', ['ngRoute']));
 
 
+
+//====================================================================================================================
+// Module:    routeRouting
+// Optimized: Yes
+// File:      ./app/app.js
+//====================================================================================================================
+
+(function (module) {
+
+  'use strict';
+
+  module
+      .config($routeProvider => {
+          $routeProvider
+              .when("/", {
+                  templateUrl:"partials/home.html"
+              })
+              .when("/i65", {
+                  templateUrl: "partials/i65.html",
+                  controller: "i65Ctrl"
+              })
+              .when("/i40", {
+                  templateUrl: "partials/i40.html",
+                  controller: "i40Ctrl"
+              })
+              .otherwise("/");
+      });
+
+//--------------------------------------------------------------------------------------------------------------------
+// File: ./app/controllers/i40Ctrl.js
+//--------------------------------------------------------------------------------------------------------------------
+
+  'use strict';
+
+  module.controller("i40Ctrl", function ($scope, RouteFactory) {
+      RouteFactory.getRoutes()
+          .then((routeData) => {
+              $scope.highwayName = routeData.data.highway2.name;
+              $scope.highwayDescription = routeData.data.highway2.description;
+          });
+  });
+//--------------------------------------------------------------------------------------------------------------------
+// File: ./app/controllers/i65Ctrl.js
+//--------------------------------------------------------------------------------------------------------------------
+
+  'use strict';
+
+  module.controller("i65Ctrl", function ($scope, RouteFactory) {
+      RouteFactory.getRoutes()
+          .then((routeData) => {
+              $scope.highwayName = routeData.data.highway1.name;
+              $scope.highwayDescription = routeData.data.highway1.description;
+          });
+  });
+//--------------------------------------------------------------------------------------------------------------------
+// File: ./app/factories/RouteFactory.js
+//--------------------------------------------------------------------------------------------------------------------
+
+  'use strict';
+
+  module.factory("RouteFactory", function ($q, $http) {
+
+      let getRoutes = () => {
+          return $q((resolve, reject) => {
+              $http
+                  .get("../data/routes.json")
+                  .then((routes) => {
+                      resolve(routes);
+                  })
+                  .catch((err) => {
+                      reject(err);
+                  });
+          });
+      };
+      return { getRoutes };
+  });
+
+}) (angular.module ('routeRouting', ['ngRoute']));
+
+
