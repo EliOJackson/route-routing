@@ -8,11 +8,11 @@ angular.module("routeRouting", ["ngRoute"])
             })
             .when("/i65", {
                 templateUrl: "partials/i65.html",
-                controller: "i65Ctrl.js"
+                controller: "i65Ctrl"
             })
             .when("/i40", {
                 templateUrl: "partials/i40.html",
-                controller: "i40Ctrl.js"
+                controller: "i40Ctrl"
             })
             .otherwise("/");
     });
